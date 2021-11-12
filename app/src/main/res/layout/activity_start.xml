@@ -6,56 +6,59 @@
     android:layout_height="match_parent"
     tools:context=".StartActivity">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_main" />
+
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="341dp"
-        android:layout_height="433dp"
-        app:srcCompat="@drawable/zahlen"
-        tools:layout_editor_absoluteX="35dp"
-        tools:layout_editor_absoluteY="67dp" />
-
-    <Button
-        android:id="@+id/plusButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="+"
-        android:onClick="onClickAddition"
+        android:layout_width="319dp"
+        android:layout_height="412dp"
         app:layout_constraintEnd_toStartOf="@+id/multiplicationButton"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="557dp" />
-
-    <Button
-        android:id="@+id/multiplicationButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="x"
-        android:onClick="onClickMultiplication"
-        app:layout_constraintEnd_toStartOf="@+id/minusButton"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/plusButton"
-        tools:layout_editor_absoluteY="557dp" />
-
-    <Button
-        android:id="@+id/minusButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="-"
-        android:onClick="onClickSubtraction"
-        app:layout_constraintEnd_toStartOf="@+id/divisionButton"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/multiplicationButton"
-        tools:layout_editor_absoluteY="557dp" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:srcCompat="@drawable/zahlen" />
 
     <Button
         android:id="@+id/divisionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=":"
+        android:layout_marginTop="61dp"
         android:onClick="onClickDivision"
+        android:text=":"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="@+id/minusButton"
+        app:layout_constraintTop_toBottomOf="@+id/minusButton"
+        app:layout_constraintVertical_bias="0.136" />
+
+    <Button
+        android:id="@+id/minusButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:onClick="onClickSubtraction"
+        android:text="-"
+        app:layout_constraintEnd_toEndOf="@+id/multiplicationButton"
+        app:layout_constraintTop_toBottomOf="@+id/multiplicationButton" />
+
+    <Button
+        android:id="@+id/multiplicationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:onClick="onClickMultiplication"
+        android:text="x"
+        app:layout_constraintEnd_toEndOf="@+id/plusButton"
+        app:layout_constraintTop_toBottomOf="@+id/plusButton" />
+
+    <Button
+        android:id="@+id/plusButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClickAddition"
+        android:text="+"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/minusButton"
-        tools:layout_editor_absoluteY="557dp" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

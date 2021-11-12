@@ -1,6 +1,8 @@
 package com.hfad.einmaleins;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,18 +12,19 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class CalculationActivity extends AppCompatActivity {
     public static final String ARITHMETIC_TYPE = "arithmetic type";
     public static final String RIGHT_ANSWER = "Richtig!";
     public static final String WRONG_ANSWER = "Leider Falsch.";
 
     private final Exam exam = new Exam();
-    private Toast answerToast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_calculation);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         Intent intent = getIntent();
         String arithmeticType = intent.getStringExtra(ARITHMETIC_TYPE);
@@ -44,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle savedInstanceState) {
+    protected void onSaveInstanceState(@NonNull Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
         savedInstanceState.putString("task", exam.getTask());
         savedInstanceState.putInt("numberOne", exam.getNumberOne());
@@ -66,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         TextView taskTextView = findViewById(R.id.taskTextView);
         Boolean result = exam.checkAnswer(editText.getText().toString());
 
+        Toast answerToast;
         if(result) {
             exam.setNewTask(getArithmeticTypeSpinner(), getSpinnerNumber());
             taskTextView.setText(exam.getTask());
@@ -79,14 +83,12 @@ public class MainActivity extends AppCompatActivity {
 
     public String getSpinnerNumber(){
         Spinner testNumberSpinner = findViewById(R.id.numberSpinner);
-        String testNumber = String.valueOf(testNumberSpinner.getSelectedItem());
-        return testNumber;
+        return String.valueOf(testNumberSpinner.getSelectedItem());
     }
 
     public String getArithmeticTypeSpinner(){
         Spinner arithmeticTypeSpinner = findViewById(R.id.arithmeticSpinner);
-        String arithmeticType = String.valueOf(arithmeticTypeSpinner.getSelectedItem());
-        return arithmeticType;
+        return String.valueOf(arithmeticTypeSpinner.getSelectedItem());
     }
 
     private int convertArithmeticType(String arithmeticType){

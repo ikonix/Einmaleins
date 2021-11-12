@@ -23,4 +23,10 @@
         <item>-</item>
         <item>:</item>
     </string-array>
+
+    <string name="menu">Menü</string>
+    <string name="share">Teilen</string>
+    <string name="settings_activity">Einstellungen</string>
+    <string name="calculation_activity">Rechnen</string>
+
 </resources>

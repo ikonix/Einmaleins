@@ -18,7 +18,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".CalculationActivity"
+            android:label="@string/calculation_activity">
+        </activity>
 
     </application>
 
