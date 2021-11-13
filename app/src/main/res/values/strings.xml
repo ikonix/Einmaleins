@@ -24,9 +24,10 @@
         <item>:</item>
     </string-array>
 
-    <string name="menu">Menü</string>
+    <string name="settings">Einstellungen</string>
     <string name="share">Teilen</string>
     <string name="settings_activity">Einstellungen</string>
     <string name="calculation_activity">Rechnen</string>
+    <string name="arithmetic_operation">Rechenart</string>
 
 </resources>
