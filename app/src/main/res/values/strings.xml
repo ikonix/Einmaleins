@@ -29,5 +29,21 @@
     <string name="settings_activity">Einstellungen</string>
     <string name="calculation_activity">Rechnen</string>
     <string name="arithmetic_operation">Rechenart</string>
+    <string name="numbers">Ziffern</string>
+    <string name="mode">Modus</string>
+    <string name="one">Eins</string>
+    <string name="two">Zwei</string>
+    <string name="three">Drei</string>
+    <string name="four">Vier</string>
+    <string name="five">Fünf</string>
+    <string name="six">Sechs</string>
+    <string name="seven">Sieben</string>
+    <string name="eight">Acht</string>
+    <string name="nine">Neun</string>
+    <string name="ten">Zehn</string>
+    <string name="addition">+</string>
+    <string name="subtraction">-</string>
+    <string name="multiplication">*</string>
+    <string name="division">:</string>
 
 </resources>
