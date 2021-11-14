@@ -15,6 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/multiplication"
+        android:onClick="onOperationCheckboxClicked"
         app:layout_constraintStart_toEndOf="@+id/additionCheckBox"
         app:layout_constraintTop_toTopOf="@+id/additionCheckBox" />
 
@@ -23,6 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/subtraction"
+        android:onClick="onOperationCheckboxClicked"
         app:layout_constraintStart_toEndOf="@+id/multiplicationCheckBox"
         app:layout_constraintTop_toTopOf="@+id/multiplicationCheckBox" />
 
@@ -31,6 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/division"
+        android:onClick="onOperationCheckboxClicked"
         app:layout_constraintStart_toEndOf="@+id/subtractionCheckBox"
         app:layout_constraintTop_toTopOf="@+id/subtractionCheckBox" />
 
@@ -41,6 +44,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="@string/addition"
+        android:onClick="onOperationCheckboxClicked"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/operationTextView" />
 
@@ -50,6 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:text="@string/six"
+        android:onClick="onNumberCheckBoxClicked"
         app:layout_constraintStart_toEndOf="@+id/oneCheckBox"
         app:layout_constraintTop_toTopOf="@+id/oneCheckBox" />
 
@@ -58,6 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/two"
+        android:onClick="onNumberCheckBoxClicked"
         app:layout_constraintStart_toStartOf="@+id/oneCheckBox"
         app:layout_constraintTop_toBottomOf="@+id/oneCheckBox" />
 
@@ -66,6 +72,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/four"
+        android:onClick="onNumberCheckBoxClicked"
         app:layout_constraintStart_toStartOf="@+id/threeCheckBox"
         app:layout_constraintTop_toBottomOf="@+id/threeCheckBox" />
 
@@ -76,6 +83,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="@string/one"
+        android:onClick="onNumberCheckBoxClicked"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/numbersTextView" />
 
@@ -84,6 +92,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/seven"
+        android:onClick="onNumberCheckBoxClicked"
         app:layout_constraintStart_toStartOf="@+id/sixCheckBox"
         app:layout_constraintTop_toBottomOf="@+id/sixCheckBox" />
 
@@ -92,6 +101,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/ten"
+        android:onClick="onNumberCheckBoxClicked"
         app:layout_constraintStart_toStartOf="@+id/nineCheckBox"
         app:layout_constraintTop_toBottomOf="@+id/nineCheckBox" />
 
@@ -100,6 +110,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/eight"
+        android:onClick="onNumberCheckBoxClicked"
         app:layout_constraintStart_toStartOf="@+id/sevenCheckBox"
         app:layout_constraintTop_toBottomOf="@+id/sevenCheckBox" />
 
@@ -108,6 +119,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/nine"
+        android:onClick="onNumberCheckBoxClicked"
         app:layout_constraintStart_toStartOf="@+id/eightCheckBox"
         app:layout_constraintTop_toBottomOf="@+id/eightCheckBox" />
 
@@ -116,6 +128,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/three"
+        android:onClick="onNumberCheckBoxClicked"
         app:layout_constraintStart_toStartOf="@+id/twoCheckBox"
         app:layout_constraintTop_toBottomOf="@+id/twoCheckBox" />
 
@@ -124,6 +137,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/five"
+        android:onClick="onNumberCheckBoxClicked"
         app:layout_constraintStart_toStartOf="@+id/fourCheckBox"
         app:layout_constraintTop_toBottomOf="@+id/fourCheckBox" />
 
@@ -137,34 +151,38 @@
         app:layout_constraintTop_toBottomOf="@+id/modeTextView">
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/practiceRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Normal"
+            android:text="@string/practice"
+            android:onClick="onRadioButtonClicked"
             tools:layout_editor_absoluteX="97dp"
             tools:layout_editor_absoluteY="312dp" />
 
         <RadioButton
-            android:id="@+id/radioButton4"
+            android:id="@+id/speedOneRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Speed"
+            android:text="@string/speedOne"
+            android:onClick="onRadioButtonClicked"
             tools:layout_editor_absoluteX="208dp"
             tools:layout_editor_absoluteY="360dp" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/speedTwoRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Speed2"
+            android:text="@string/speedTwo"
+            android:onClick="onRadioButtonClicked"
             tools:layout_editor_absoluteX="208dp"
             tools:layout_editor_absoluteY="312dp" />
 
         <RadioButton
-            android:id="@+id/radioButton3"
+            android:id="@+id/hangmanRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="HangMan"
+            android:text="@string/hangman"
+            android:onClick="onRadioButtonClicked"
             tools:layout_editor_absoluteX="97dp"
             tools:layout_editor_absoluteY="360dp" />
 

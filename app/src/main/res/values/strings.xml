@@ -45,5 +45,9 @@
     <string name="subtraction">-</string>
     <string name="multiplication">*</string>
     <string name="division">:</string>
+    <string name="practice">Üben</string>
+    <string name="speedOne">Auf Zeit 1</string>
+    <string name="speedTwo">Auf Zeit 2</string>
+    <string name="hangman">Galgenmännchen</string>
 
 </resources>

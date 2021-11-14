@@ -1,13 +1,18 @@
 package com.hfad.einmaleins;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.RadioGroup;
 
 public class SettingsActivity extends AppCompatActivity {
 
     private int mode = 0;
-    private int[] numbers = new int[10];
+    private boolean[] numbers = {true, true, true, true, true,
+                                true, true, true, true, true};
     private boolean addition = false;
     private boolean subtraction = false;
     private boolean multiplication = true;
@@ -17,6 +22,87 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+        if(savedInstanceState != null) {
+            mode = savedInstanceState.getInt("mode");
+            numbers = savedInstanceState.getBooleanArray("numbers");
+            addition = savedInstanceState.getBoolean("addition");
+            subtraction = savedInstanceState.getBoolean("subtraction");
+            multiplication = savedInstanceState.getBoolean("multiplication");
+            division = savedInstanceState.getBoolean("division");
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putInt("mode", mode);
+        savedInstanceState.putBoolean("addition", addition);
+        savedInstanceState.putBoolean("subtraction", subtraction);
+        savedInstanceState.putBoolean("multiplication", multiplication);
+        savedInstanceState.putBoolean("division", division);
+        savedInstanceState.putBooleanArray("numbers", numbers);
+    }
+
+    public void onOperationCheckboxClicked(View view) {
+        boolean isChecked = ((CheckBox) view).isChecked();
+
+        switch (view.getId()) {
+            case R.id.additionCheckBox:
+                addition = isChecked;
+                break;
+            case R.id.subtractionCheckBox:
+                subtraction = isChecked;
+                break;
+            case R.id.multiplicationCheckBox:
+                multiplication = isChecked;
+                break;
+            case R.id.divisionCheckBox:
+                division = isChecked;
+                break;
+        }
+    }
+
+    public void onNumberCheckBoxClicked(View view) {
+        boolean isChecked = ((CheckBox) view).isChecked();
+
+        switch (view.getId()) {
+            case R.id.oneCheckBox:
+                numbers[0] = isChecked;
+                break;
+            case R.id.twoCheckBox:
+                numbers[1] = isChecked;
+                break;
+            case R.id.threeCheckBox:
+                numbers[2] = isChecked;
+                break;
+            case R.id.fourCheckBox:
+                numbers[3] = isChecked;
+                break;
+            case R.id.fiveCheckBox:
+                numbers[4] = isChecked;
+                break;
+            case R.id.sixCheckBox:
+                numbers[5] = isChecked;
+                break;
+            case R.id.sevenCheckBox:
+                numbers[6] = isChecked;
+                break;
+            case R.id.eightCheckBox:
+                numbers[7] = isChecked;
+                break;
+            case R.id.nineCheckBox:
+                numbers[8] = isChecked;
+                break;
+            case R.id.tenCheckBox:
+                numbers[9] = isChecked;
+                break;
+        }
+    }
+
+    public void onRadioButtonClicked(View view) {
+        RadioGroup modeRadioGroup = findViewById(R.id.radioGroup);
+        mode = modeRadioGroup.getCheckedRadioButtonId();
     }
 
     public int getMode() {
@@ -27,11 +113,11 @@ public class SettingsActivity extends AppCompatActivity {
         this.mode = mode;
     }
 
-    public int[] getNumbers() {
+    public boolean[] getNumbers() {
         return numbers;
     }
 
-    public void setNumbers(int[] numbers) {
+    public void setNumbers(boolean[] numbers) {
         this.numbers = numbers;
     }
 
@@ -57,13 +143,5 @@ public class SettingsActivity extends AppCompatActivity {
 
     public void setMultiplication(boolean multiplication) {
         this.multiplication = multiplication;
-    }
-
-    public boolean isDivision() {
-        return division;
-    }
-
-    public void setDivision(boolean division) {
-        this.division = division;
     }
 }
