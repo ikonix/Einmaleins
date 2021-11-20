@@ -1,11 +1,14 @@
 package com.hfad.einmaleins;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -13,11 +16,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class CalculationActivity extends AppCompatActivity {
+    public static final String SETTINGS = "settings";
     public static final String ARITHMETIC_TYPE = "arithmetic type";
     public static final String RIGHT_ANSWER = "Richtig!";
     public static final String WRONG_ANSWER = "Leider Falsch.";
 
     private final Exam exam = new Exam();
+    private Settings settings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +30,12 @@ public class CalculationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_calculation);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         Intent intent = getIntent();
         String arithmeticType = intent.getStringExtra(ARITHMETIC_TYPE);
+        settings = (Settings) intent.getSerializableExtra(SETTINGS);
 
         Spinner arithmeticTypeSpinner = findViewById(R.id.arithmeticSpinner);
         arithmeticTypeSpinner.setSelection(convertArithmeticType(arithmeticType));
@@ -44,6 +52,24 @@ public class CalculationActivity extends AppCompatActivity {
         }
 
         taskTextView.setText(exam.getTask());
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_open_settings:
+                Intent intent = new Intent(this, SettingsActivity.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
