@@ -46,6 +46,10 @@ public class Settings implements Serializable {
         this.numbers = numbers;
     }
 
+    public void setSingleNumber(boolean isChecked, int positionInArray) {
+        this.numbers[positionInArray] = isChecked;
+    }
+
     public boolean isAddition() {
         return addition;
     }

@@ -49,5 +49,9 @@
     <string name="speedOne">Auf Zeit 1</string>
     <string name="speedTwo">Auf Zeit 2</string>
     <string name="hangman">Galgenmännchen</string>
+    <string name="right_answer">Richtig!</string>
+    <string name="wrong_answer">Leider Falsch.</string>
+    <string name="select_all">Alles auswählen</string>
+    <string name="unselect_all">Alles abwählen</string>
 
 </resources>

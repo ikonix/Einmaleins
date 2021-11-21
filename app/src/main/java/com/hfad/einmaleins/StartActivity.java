@@ -34,8 +34,7 @@ public class StartActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_open_settings:
-                Intent intent = new Intent(this, SettingsActivity.class);
-                startActivity(intent);
+                startSettingsActivity();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -62,6 +61,12 @@ public class StartActivity extends AppCompatActivity {
         Intent intent = new Intent(this, CalculationActivity.class);
         intent.putExtra(CalculationActivity.ARITHMETIC_TYPE, arithmeticType);
         intent.putExtra(CalculationActivity.SETTINGS, settings);
+        startActivity(intent);
+    }
+
+    public void startSettingsActivity() {
+        Intent intent = new Intent(this, SettingsActivity.class);
+        intent.putExtra(SettingsActivity.SETTINGS, settings);
         startActivity(intent);
     }
 }
